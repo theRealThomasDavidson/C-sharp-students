@@ -55,7 +55,7 @@ namespace HelloWorld
                         str = Console.ReadLine();
                     } while (!double.TryParse(str, out flt));
                     flt = double.Parse(str);
-                } while (!(0 =< flt && flt <= 4));
+                } while (!(0 <= flt && flt <= 4));
                 return flt;
             }
             static DateTime inputDOB(string message = "Enter Date of Birth")
