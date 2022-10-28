@@ -55,7 +55,7 @@ namespace HelloWorld
                         str = Console.ReadLine();
                     } while (!double.TryParse(str, out flt));
                     flt = double.Parse(str);
-                } while (0 < flt && flt < 4);
+                } while (!(0 =< flt && flt <= 4));
                 return flt;
             }
             static DateTime inputDOB(string message = "Enter Date of Birth")
@@ -209,7 +209,7 @@ namespace HelloWorld
             {
                 Console.WriteLine("Enter name for new student:");
                 string name = Console.ReadLine();
-                Student temp = new Student(id, name, inputGFloat("New Students current grade:"), new HashSet<string>(),  inputDOB("Enter Date Of Birth For student:");
+                Student temp = new Student(id, name, inputGFloat("New Students current grade:"), new HashSet<string>(),  inputDOB("Enter Date Of Birth For student:"));
                 name = "";
                 do
                 {
@@ -218,7 +218,7 @@ namespace HelloWorld
                     if (name.Substring(0, 1) == "0") { break; }
                     temp.courses.Add(name);
                 }while (name.Substring(0, 1) != "0");
-                Console.WriteLine(string.Format("Confirm adding\n{0}\nstudent(y to add)", str));
+                Console.WriteLine(string.Format("Confirm adding\n{0}\nstudent(y to add)", temp.ToString()));
                 name = Console.ReadLine();
                 if (!"yY".Contains(name.Substring(0, 1)))
                 {
@@ -279,7 +279,6 @@ namespace HelloWorld
                 }
 
             } while (choice != 0);
-            Console.WriteLine(student_list[1].ToString());
             // cleanup
         }
     }
